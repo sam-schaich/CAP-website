@@ -32,6 +32,35 @@ export default async function Home() {
         ) : (
           <Link href="/login">Log in</Link>
         )}
+        <p
+  style={{
+    maxWidth: "700px",
+    margin: "2rem auto",
+    lineHeight: "1.6",
+    fontSize: "1.1rem",
+    textAlign: "center",
+  }}
+>
+  <strong style={{ fontSize: "1.3rem" }}>
+    Greetings, puzzle enthusiasts!
+  </strong>
+  <br /><br />
+
+  Before you lie four paths, each containing a sequence of puzzles to solve.
+  Some will test your wits alone, while others will require the use of
+  <em> curious maps</em>, <em>Furman’s campus</em>, or both.
+  <br /><br />
+
+  At the end of each path, you will obtain a letter. Be sure to keep track of
+  all four letters as you progress through your adventure.
+  <br /><br />
+
+  <strong>
+    These letters are the key to a final puzzle—
+  </strong>{" "}
+  one that will reveal the location of the missing Bell Tower clock and restore
+  order to campus.
+</p>
       </div>
       {/* Puzzle links (horizontal) */}
       <nav
@@ -55,6 +84,7 @@ export default async function Home() {
           Path 4
         </Link>
       </nav>
+
 
       {/* Map PDFs section */}
       <section style={{ width: "100%", maxWidth: 900 }}>
