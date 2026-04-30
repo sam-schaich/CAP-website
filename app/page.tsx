@@ -115,18 +115,18 @@ export default async function Home() {
         Greetings, puzzle enthusiasts!
       </strong>
       <br /><br />
-      Before you lie four paths, each containing a sequence of puzzles to solve.
+      Before you lie four paths, each containing a linear sequence of puzzles to solve.
       Some will test your wits alone, while others will require the use of
-      <em> curious maps</em>, <em>Furman’s campus</em>, or both.
+       curious maps, Furman's campus, or both.
       <br /><br />
-      At the end of each path, you will obtain a letter. Be sure to keep track of
+      At the end of each path, you should obtain a letter. Be sure to keep track of
       all four letters as you progress through your adventure.
       <br /><br />
       <strong>
-        These letters are the key to a final puzzle—
+        These letters are the key to a final puzzle,
       </strong>{" "}
       one that will reveal the location of the missing Bell Tower clock and restore
-      order to campus.
+      order to campus!
     </p>
 
 {/* PATH BUTTONS */}
