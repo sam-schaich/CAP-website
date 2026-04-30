@@ -50,7 +50,7 @@ export default async function Path1Page() {
   });
 
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui", maxWidth: 900, margin: "0 auto" }}>
+    <main style={{ padding: 24, fontFamily: "Georgia, 'Times New Roman', serif", maxWidth: 900, margin: "0 auto" }}>
       <div
   style={{
     display: "flex",
