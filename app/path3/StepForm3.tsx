@@ -69,15 +69,15 @@ export default function StepForm({
 
     
 if (data?.correct) {
+  setStatus("✅ Correct! … Refreshing…");
+  onCorrect?.({ step, guess, data });
+  window.location.reload();
   if (step === 6) {
     setStatus(
       `✅ Correct! You'll need to save the letter ${guess} for later once you've completed all 4 paths.`
     );
     return; // do NOT reload on final step
   }
-  setStatus("✅ Correct! … Refreshing…");
-  onCorrect?.({ step, guess, data });
-  window.location.reload();
   return;
 }
       

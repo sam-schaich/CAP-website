@@ -4,8 +4,7 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import StepForm from "./step-form";
 import Step2Client from "./step2-client";
-
-
+import FinalUnlock from "@/components/FinalUnlock";
 
 export const dynamic = "force-dynamic";
 
@@ -40,6 +39,15 @@ export default async function Path1Page() {
   const MAX_STEP = 6;
   const completedPath = unlockedStep === MAX_STEP && Boolean(answers["6"]);
 
+  const { data: allProgress } = await supabase
+  .from("progress")
+  .select("path, step, answers")
+  .eq("user_id", user.id);
+
+  const completedAllPaths = ["path1", "path2", "path3", "path4"].every((path) => {
+  const p = allProgress?.find((row) => row.path === path);
+  return p && p.step === MAX_STEP && p.answers?.[String(MAX_STEP)];
+  });
 
   return (
     <main style={{ padding: 24, fontFamily: "system-ui", maxWidth: 900, margin: "0 auto" }}>
@@ -53,13 +61,27 @@ export default async function Path1Page() {
 >
   <h1 style={{ margin: 0 }}>Path 1</h1>
 
-  <nav style={{ display: "flex", gap: 12 }}>
-    <Link href="/">Home</Link>
-    <Link href="/path1">Path 1</Link>
-    <Link href="/path2">Path 2</Link>
-    <Link href="/path3">Path 3</Link>
-    <Link href="/path4">Path 4</Link>
-  </nav>
+<nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
+  <Link href="/">Home</Link>
+  <Link href="/path1">Path 1</Link>
+  <Link href="/path2">Path 2</Link>
+  <Link href="/path3">Path 3</Link>
+  <Link href="/path4">Path 4</Link>
+  {completedAllPaths && (
+    <Link
+      href="/final"
+      style={{
+        fontWeight: "bold",
+        color: "#5a4632",
+        border: "1px solid #5a4632",
+        padding: "2px 10px",
+        borderRadius: 6,
+      }}
+    >
+      🔓 Final Puzzle
+    </Link>
+  )}
+</nav>
 </div>
 
 
@@ -321,26 +343,62 @@ export default async function Path1Page() {
       <p>There, the answer awaits.</p>
 
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
-      {unlockedStep === 6 ? (
-        <StepForm path="path1" step={6} />
-      ) : unlockedStep > 6 ? (
-        <p>
-          ✅ Completed.{" "}
-          {answers?.["6"] ? (
-            <>
-              <span style={{ opacity: 0.7 }}>Answer:</span>{" "}
-              <strong>{answers["6"]}</strong>
-            </>
-          ) : null}
-        </p>
+      {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
+      {unlockedStep === 6 && !answers["6"] ? (
+  <StepForm path="path1" step={6} />
+      ) : answers["6"] ? (
+      <p>
+        ✅ Completed.{" "}
+      <span style={{ opacity: 0.7 }}>Answer:</span>{" "}
+      <strong>{answers["6"]}</strong>
+      </p>
       ) : null}
     </>
   )}
 
 </section>
+{typeof completedAllPaths === "boolean" && (
+  <FinalUnlock unlocked={completedAllPaths} />
+)}
+<footer
+  style={{
+    marginTop: "3rem",
+    paddingTop: "1.5rem",
+    borderTop: "1px solid #d6c6a8",
+    width: "100%",
+    maxWidth: "900px",
+    textAlign: "center",
+  }}
+>
 
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "2rem",
+      flexWrap: "wrap",
+    }}
+  >
 
-      
+      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+        Furman Mathematics
+      </p>
+    {/* Main logo */}
+    <Image
+      src="/logos/FHCBlack.svg"
+      alt="FHC Logo"
+      width={80}
+      height={80}
+    />
+
+      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+        Furman Art
+      </p>
+  </div>
+</footer>
+     
+
     </main>
   );
 }
