@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { Cinzel, Uncial_Antiqua } from "next/font/google";
 
@@ -10,6 +11,21 @@ export default async function Home() {
   const supabase = await createSupabaseServerClient();
   const { data } = await supabase.auth.getUser();
   const user = data?.user ?? null;
+
+  const MAX_STEP = 6;
+
+  const { data: allProgress } = user
+    ? await supabase
+        .from("progress")
+        .select("path, step, answers")
+        .eq("user_id", user.id)
+    : { data: null };
+
+  const completedAllPaths = ["path1", "path2", "path3", "path4"].every((path) => {
+    const p = allProgress?.find((row) => row.path === path);
+    return p && p.step === MAX_STEP && p.answers?.[String(MAX_STEP)];
+  });
+
   return (
     <main
   style={{
@@ -24,7 +40,7 @@ export default async function Home() {
       "radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px)",
     backgroundSize: "6px 6px",
 
-    fontFamily: "system-ui",
+    fontFamily: "Georgia, 'Times New Roman', serif",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -37,21 +53,43 @@ export default async function Home() {
 >
   {/* HEADER */}
   <header style={{ textAlign: "center" }}>
-    <h1
-      className={medieval.className}
-      style={{
-        fontSize: "4.5rem",
-        marginTop: "4rem",
-        marginBottom: "0.5rem",
-        letterSpacing: "1px",
-      }}
-    >
-      Furman Cartography< br />
-       Society
-    </h1>
+  <div
+    style={{
+      width: "120px",
+      height: "2px",
+      background: "#5a4632",
+      margin: "0 auto 1rem",
+      opacity: 0.6,
+    }}
+  />
+
+  <h1
+    className={medieval.className}
+    style={{
+      fontSize: "clamp(2rem, 6vw, 4.5rem)",
+      marginTop: "0",
+      marginBottom: "0.5rem",
+      letterSpacing: "2px",
+      lineHeight: "1.1",
+      textTransform: "uppercase",
+    }}
+  >
+    ⚜ Furman Cartographer's ⚜<br />
+  Society
+  </h1>
+
+  <div
+    style={{
+      width: "120px",
+      height: "2px",
+      background: "#5a4632",
+      margin: "1rem auto 0",
+      opacity: 0.6,
+    }}
+  />
 
     {user ? (
-      <p style={{ fontSize: "0.9rem", opacity: 0.7 }}>
+      <p style={{ fontSize: "0.9rem", opacity: 0.7, marginTop: "2rem" }}>
         Logged in as: {user?.email} | <a href="/auth/logout">Log out</a>
       </p>
     ) : (
@@ -88,31 +126,47 @@ export default async function Home() {
       order to campus.
     </p>
 
-    {/* PATH BUTTONS */}
-    <nav
+{/* PATH BUTTONS */}
+<nav
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "1rem",
+    flexWrap: "wrap",
+  }}
+>
+  {["path1", "path2", "path3", "path4"].map((path, i) => (
+    <Link
+      key={path}
+      href={`/${path}`}
       style={{
-        display: "flex",
-        justifyContent: "center",
-        gap: "1rem",
-        flexWrap: "wrap",
+        padding: "0.6rem 1.2rem",
+        border: "1px solid #ccc",
+        borderRadius: "8px",
+        textDecoration: "none",
+        fontSize: "1rem",
       }}
     >
-      {["path1", "path2", "path3", "path4"].map((path, i) => (
-        <Link
-          key={path}
-          href={`/${path}`}
-          style={{
-            padding: "0.6rem 1.2rem",
-            border: "1px solid #ccc",
-            borderRadius: "8px",
-            textDecoration: "none",
-            fontSize: "1rem",
-          }}
-        >
-          Path {i + 1}
-        </Link>
-      ))}
-    </nav>
+      Path {i + 1}
+    </Link>
+  ))}
+  {completedAllPaths && (
+    <Link
+      href="/final"
+      style={{
+        padding: "0.6rem 1.2rem",
+        border: "1px solid #5a4632",
+        borderRadius: "8px",
+        textDecoration: "none",
+        fontSize: "1rem",
+        fontWeight: "bold",
+        color: "#5a4632",
+      }}
+    >
+      🔓 Final Puzzle
+    </Link>
+  )}
+</nav>
   </section>
 
   {/* MAPS */}
@@ -195,6 +249,43 @@ export default async function Home() {
       With assistance from the Dame, you must outmaneuver King Cassian and find the clock so it can be returned to its rightful place before the modern world is overwritten by the Kingdom of Furman forever!
     </p>
   </section>
+  <footer
+  style={{
+    marginTop: "3rem",
+    paddingTop: "1.5rem",
+    borderTop: "1px solid #d6c6a8",
+    width: "100%",
+    maxWidth: "900px",
+    textAlign: "center",
+  }}
+>
+
+  <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "2rem",
+      flexWrap: "wrap",
+    }}
+  >
+
+      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+        Furman Mathematics
+      </p>
+    {/* Main logo */}
+    <Image
+      src="/logos/FHCBlack.svg"
+      alt="FHC Logo"
+      width={80}
+      height={80}
+    />
+
+      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+        Furman Art
+      </p>
+  </div>
+</footer>
 </main>
   );
 }

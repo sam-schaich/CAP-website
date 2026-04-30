@@ -37,12 +37,12 @@ const ANSWERS: Record<string, Record<number, string[]>> = {
   },
 
   path4: {
-    1: ["..."],
-    2: ["..."],
-    3: ["..."],
-    4: ["..."],
-    5: ["..."],
-    6: ["..."],
+    1: ["placeofpeace"],
+    2: ["shereewright"],
+    3: ["chiles"],
+    4: ["bell"],
+    5: ["oldcollege"],
+    6: ["x"],
   },
 };
 
