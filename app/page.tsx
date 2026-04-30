@@ -220,6 +220,7 @@ export default async function Home() {
     padding: "2.5rem",
     lineHeight: "1.7",
     fontSize: "1.05rem",
+    textAlign: "center",
 
     // parchment base
     background: "#f7f1e3",
