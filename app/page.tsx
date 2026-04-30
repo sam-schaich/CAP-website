@@ -77,7 +77,8 @@ export default async function Home() {
     wordBreak: "break-word",
   }}
 >
-  ⚜ Furman Cartographer's Society ⚜
+  ⚜ Furman Cartographer's ⚜<br />
+  Society 
 </h1>
 
   <div
