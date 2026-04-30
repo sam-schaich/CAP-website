@@ -63,20 +63,22 @@ export default async function Home() {
     }}
   />
 
-  <h1
-    className={medieval.className}
-    style={{
-      fontSize: "clamp(2rem, 6vw, 4.5rem)",
-      marginTop: "0",
-      marginBottom: "0.5rem",
-      letterSpacing: "2px",
-      lineHeight: "1.1",
-      textTransform: "uppercase",
-    }}
-  >
-    ⚜ Furman Cartographer's ⚜<br />
-  Society
-  </h1>
+<h1
+  className={medieval.className}
+  style={{
+    fontSize: "clamp(1.4rem, 4vw, 4.5rem)",
+    marginTop: "0",
+    marginBottom: "0.5rem",
+    letterSpacing: "2px",
+    lineHeight: "1.3",
+    textTransform: "uppercase",
+    textAlign: "center",
+    maxWidth: "100%",
+    wordBreak: "break-word",
+  }}
+>
+  ⚜ Furman Cartographer's Society ⚜
+</h1>
 
   <div
     style={{
