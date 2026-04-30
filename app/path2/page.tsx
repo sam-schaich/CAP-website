@@ -48,7 +48,7 @@ export default async function Path2Page() {
   return p && p.step === MAX_STEP && p.answers?.[String(MAX_STEP)];
   });
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui", maxWidth: 900, margin: "0 auto" }}>
+    <main style={{ padding: 24, fontFamily: "Georgia, 'Times New Roman', serif", maxWidth: 900, margin: "0 auto" }}>
       <div
   style={{
     display: "flex",
@@ -59,13 +59,27 @@ export default async function Path2Page() {
 >
   <h1 style={{ margin: 0 }}>Path 2</h1>
 
-  <nav style={{ display: "flex", gap: 12 }}>
-    <Link href="/">Home</Link>
-    <Link href="/path1">Path 1</Link>
-    <Link href="/path2">Path 2</Link>
-    <Link href="/path3">Path 3</Link>
-    <Link href="/path4">Path 4</Link>
-  </nav>
+<nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
+  <Link href="/">Home</Link>
+  <Link href="/path1">Path 1</Link>
+  <Link href="/path2">Path 2</Link>
+  <Link href="/path3">Path 3</Link>
+  <Link href="/path4">Path 4</Link>
+  {completedAllPaths && (
+    <Link
+      href="/final"
+      style={{
+        fontWeight: "bold",
+        color: "#5a4632",
+        border: "1px solid #5a4632",
+        padding: "2px 10px",
+        borderRadius: 6,
+      }}
+    >
+      🔓 Final Puzzle
+    </Link>
+  )}
+</nav>
 </div>
 
 
@@ -336,7 +350,9 @@ export default async function Path2Page() {
   )}
 
 </section>
-
+{typeof completedAllPaths === "boolean" && (
+  <FinalUnlock unlocked={completedAllPaths} />
+)}
 <footer
   style={{
     marginTop: "3rem",
@@ -375,9 +391,7 @@ export default async function Path2Page() {
   </div>
 </footer>
      
-{typeof completedAllPaths === "boolean" && (
-  <FinalUnlock unlocked={completedAllPaths} />
-)}
+
     </main>
   );
 }

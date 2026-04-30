@@ -48,7 +48,7 @@ export default async function Path3Page() {
   });
 
   return (
-    <main style={{ padding: 24, fontFamily: "system-ui", maxWidth: 900, margin: "0 auto" }}>
+    <main style={{ padding: 24, fontFamily: "Georgia, 'Times New Roman', serif", maxWidth: 900, margin: "0 auto" }}>
       <div
   style={{
     display: "flex",
@@ -354,6 +354,9 @@ export default async function Path3Page() {
   )}
 
 </section>
+{typeof completedAllPaths === "boolean" && (
+  <FinalUnlock unlocked={completedAllPaths} />
+)}
 <footer
   style={{
     marginTop: "3rem",
@@ -392,9 +395,7 @@ export default async function Path3Page() {
   </div>
 </footer>
 
-{typeof completedAllPaths === "boolean" && (
-  <FinalUnlock unlocked={completedAllPaths} />
-)}
+
     </main>
     
   );
