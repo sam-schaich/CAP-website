@@ -303,7 +303,6 @@ export default async function Path4Page() {
     textAlign: "center",
   }}
 >
-
   <div
     style={{
       display: "flex",
@@ -313,11 +312,10 @@ export default async function Path4Page() {
       flexWrap: "wrap",
     }}
   >
+    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+      Furman Mathematics
+    </p>
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Mathematics
-      </p>
-    {/* Main logo */}
     <Image
       src="/logos/FHCBlack.svg"
       alt="FHC Logo"
@@ -325,9 +323,21 @@ export default async function Path4Page() {
       height={80}
     />
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Art
-      </p>
+    <Image
+      src="/logos/FUArt_logo.png"
+      alt="FU Art Logo"
+      width={80}
+      height={80}
+    />
+
+    {/* PP Logo */}
+    <Image
+      src="/logos/paladin-puzzlers-logo.png"  
+      alt="Paladin Puzzlers Logo"
+      width={50}
+      height={50}
+      style={{ borderRadius: "8px" }}
+    />
   </div>
 </footer>
 

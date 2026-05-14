@@ -63,23 +63,22 @@ export default async function Home() {
     }}
   />
 
-<h1
-  className={medieval.className}
-  style={{
-    fontSize: "clamp(1.4rem, 4vw, 4.5rem)",
-    marginTop: "0",
-    marginBottom: "0.5rem",
-    letterSpacing: "2px",
-    lineHeight: "1.3",
-    textTransform: "uppercase",
-    textAlign: "center",
-    maxWidth: "100%",
-    wordBreak: "break-word",
-  }}
->
-  ⚜ Furman Cartographer's ⚜<br />
-  Society 
-</h1>
+  <h1
+    className={medieval.className}
+    style={{
+      fontSize: "clamp(1.4rem, 4vw, 4.5rem)",
+      marginTop: "0",
+      marginBottom: "0.5rem",
+      letterSpacing: "2px",
+      lineHeight: "1.3",
+      textTransform: "uppercase",
+      textAlign: "center",
+      maxWidth: "100%",
+      wordBreak: "break-word",
+    }}
+  >
+    ⚜ Paladin Puzzlers ⚜<br />
+  </h1>
 
   <div
     style={{
@@ -91,14 +90,14 @@ export default async function Home() {
     }}
   />
 
-    {user ? (
-      <p style={{ fontSize: "0.9rem", opacity: 0.7, marginTop: "2rem" }}>
-        Logged in as: {user?.email} | <a href="/auth/logout">Log out</a>
-      </p>
-    ) : (
-      <Link href="/login">Log in</Link>
-    )}
-  </header>
+  {user ? (
+    <p style={{ fontSize: "0.9rem", opacity: 0.7, marginTop: "2rem" }}>
+      Logged in as: {user?.email} | <a href="/auth/logout">Log out</a>
+    </p>
+  ) : (
+    <Link href="/login">Log in</Link>
+  )}
+</header>
 
   {/* INTRO + PATHS */}
   <section
@@ -198,7 +197,7 @@ export default async function Home() {
             }}
           >
             <Image
-              src={`/maps/thumbs/map${num}.png`}
+              src={`/maps/thumbs/map${num}.jpg`}
               alt={`Map ${num}`}
               width={800}
               height={600}
@@ -214,46 +213,66 @@ export default async function Home() {
   </section>
 
   {/* STORY */}
+{/* STORY */}
 <section
   style={{
-    maxWidth: "750px",
-    padding: "2.5rem",
-    lineHeight: "1.7",
-    fontSize: "1.05rem",
-    textAlign: "center",
-
-    // parchment base
-    background: "#f7f1e3",
-
-    // medieval frame feel
-    border: "6px double #5a4632",
-    borderRadius: "10px",
-
-    // inner shadow for depth
-    boxShadow: "inset 0 0 0 2px #d6c6a8, 0 8px 20px rgba(0,0,0,0.15)",
-
     position: "relative",
-  }}
-  >
-    <p><strong>A Rift in Time</strong></p>
+    maxWidth: "1600px",
+    margin: "0 auto",
 
-    <p>
+    // Use the scroll image as background
+    backgroundImage: "url('/dame_scroll.png')",
+    backgroundSize: "contain",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center top",
+
+    // Tall enough to show the full illustration
+    minHeight: "1300px",
+
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  {/* Text sits over the scroll area */}
+  <div
+    style={{
+      // Push text down to align with the scroll body in the image
+      marginTop: "21%",
+      marginBottom: "18%",
+      marginLeft: "4%",
+
+      // Constrain to the scroll's width (roughly center 40% of image)
+      width: "15%",
+
+      textAlign: "center",
+      lineHeight: "1.6",
+      fontSize: "0.6rem",
+
+      // Scroll parchment color
+      color: "#3b2a1a",
+    }}
+  >
+    <p style={{ marginBottom: "0.6em" }}><strong>A Rift in Time</strong></p>
+
+    <p style={{ marginBottom: "0.6em" }}>
       In the shadow of the Furman Bell Tower, a temporal rift has opened between our campus and the Kingdom of Furman, a medieval realm where magic governs the land and dragons circle the skies. This fragile balance is held by the Bell Tower clock, a legendary artifact that anchors the two timelines.
     </p>
 
-    <p>
+    <p style={{ marginBottom: "0.6em" }}>
       However, the peace has been shattered by Arthur the Clock Thief, a man who has used dark magic to survive centuries just to fulfill his mission for the charismatic but power-hungry King Cassian. On the King's orders, Arthur has stolen the clock from the Bell Tower, causing the medieval world to "bleed" into our own, starting with textbooks turning into vellum and potentially ending with the modern campus disappearing entirely.
     </p>
 
-    <p>
+    <p style={{ marginBottom: "0.6em" }}>
       As a ragtag group of puzzle-solvers, you are the university's last line of defense. Your only hope lies with The Dame, a secret magician hiding in plain sight as a campus cook. She risks execution to feed you the clues needed to recover the clock.
     </p>
 
     <p>
       With assistance from the Dame, you must outmaneuver King Cassian and find the clock so it can be returned to its rightful place before the modern world is overwritten by the Kingdom of Furman forever!
     </p>
-  </section>
-  <footer
+  </div>
+</section>
+<footer
   style={{
     marginTop: "3rem",
     paddingTop: "1.5rem",
@@ -263,7 +282,6 @@ export default async function Home() {
     textAlign: "center",
   }}
 >
-
   <div
     style={{
       display: "flex",
@@ -273,11 +291,10 @@ export default async function Home() {
       flexWrap: "wrap",
     }}
   >
+    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+      Furman Mathematics
+    </p>
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Mathematics
-      </p>
-    {/* Main logo */}
     <Image
       src="/logos/FHCBlack.svg"
       alt="FHC Logo"
@@ -285,9 +302,21 @@ export default async function Home() {
       height={80}
     />
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Art
-      </p>
+    <Image
+      src="/logos/FUArt_logo.png"
+      alt="FU Art Logo"
+      width={80}
+      height={80}
+    />
+
+    {/* PP Logo */}
+    <Image
+      src="/logos/paladin-puzzlers-logo.png"  
+      alt="Paladin Puzzlers Logo"
+      width={50}
+      height={50}
+      style={{ borderRadius: "8px" }}
+    />
   </div>
 </footer>
 </main>
