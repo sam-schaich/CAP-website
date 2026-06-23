@@ -141,7 +141,7 @@ export default async function Path1Page() {
     <><div style={{ display: "grid", gap: 12 }}>
               <p>
                 Welcome to the Milford Mall Plaque. Start by facing the plaque. In order to solve the next
-                puzzle, you need to walk (or swim) past B. Plyler, but don’t go past E. Blackwell. When you
+                puzzle, you need to walk (or swim) past B. Plyler, but don’t go past E. <strong>Black</strong>well. When you
                 are in the correct spot, you should have all you need to solve the next riddle, which is …
               </p>
 
@@ -323,7 +323,7 @@ export default async function Path1Page() {
         but only one feast asks questions. <br />
         On that second occasion, <br />
         letters fall into place-- <br />
-        not words, but patters waiting to be seen. <br />
+        not words, but patterns waiting to be seen. <br />
       </p>
       <div style={{ height: 24 }} />
       <p>
@@ -370,7 +370,6 @@ export default async function Path1Page() {
     textAlign: "center",
   }}
 >
-
   <div
     style={{
       display: "flex",
@@ -380,11 +379,10 @@ export default async function Path1Page() {
       flexWrap: "wrap",
     }}
   >
+    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+      Furman Mathematics
+    </p>
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Mathematics
-      </p>
-    {/* Main logo */}
     <Image
       src="/logos/FHCBlack.svg"
       alt="FHC Logo"
@@ -392,9 +390,28 @@ export default async function Path1Page() {
       height={80}
     />
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Art
-      </p>
+    <Image
+      src="/logos/FUArt_logo.png"
+      alt="FU Art Logo"
+      width={80}
+      height={80}
+    />
+
+      <Image
+        src="/logos/TCC Logo.png"
+        alt="Cothran Center Logo"
+        width={80}
+        height={80}
+    />
+    
+    {/* PP Logo */}
+    <Image
+      src="/logos/paladin-puzzlers-logo.png"  
+      alt="Paladin Puzzlers Logo"
+      width={50}
+      height={50}
+      style={{ borderRadius: "8px" }}
+    />
   </div>
 </footer>
      

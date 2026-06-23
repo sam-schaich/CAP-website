@@ -10,7 +10,7 @@ function normalize(s: string) {
 
 const ANSWERS: Record<string, Record<number, string[]>> = {
   path1: {
-    1: ["milfordmallplaque"],
+    1: ["milfordmallplaque", "millfordmallplaque"],
     2: ["1330157"],
     3: ["pb"],
     4: ["graeme"],
@@ -19,7 +19,7 @@ const ANSWERS: Record<string, Record<number, string[]>> = {
   },
 
   path2: {
-    1: ["footballcoliseum"],
+    1: ["footballcoliseum", "footballcolosseum"],
     2: ["giantknight"],
     3: ["family"],
     4: ["ff"],

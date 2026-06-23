@@ -139,9 +139,8 @@ export default async function Path3Page() {
     <>
       {/* TEXT ALWAYS VISIBLE ONCE UNLOCKED */}
       <p>
-        You got it. Now <b>search</b> closely in the parking lot (near the <b>
-        pigpen</b>, and <b>decipher</b> the three word message hidden there. Enter the three words to go to the next step. 
-        Use all lower case, and include spaces between the words.)
+        You got it. It looks like there are some pigs in the parking lot searching for a clue near their pen. 
+        Your password is three words. Use all lower case and include spaces between the words.
       </p>
 
 
@@ -215,8 +214,8 @@ export default async function Path3Page() {
     <>
       {/* TEXT ALWAYS VISIBLE ONCE UNLOCKED */}
       <p>
-      Wonderful. You are now likely standing in (or near) Furman's labrynth.
-      Here is another image of a labrynth. Find your way out of this beautifl green space, and let your path 
+      Wonderful. You are now likely standing in (or near) Furman's labyrinth.
+      Here is another image of a labyrinth. Find your way out of this beautiful green space, and let your path 
       show the way to the next phrase, which also provides your next instructions. Enter the fourth word of the phrase,
       all in lowercase.  
       </p>
@@ -224,7 +223,7 @@ export default async function Path3Page() {
           <div style={{ margin: "16px 0" }}>
               <Image
                 src="/path3/step4.png"
-                alt="A labrynth with letters scattered throughout"
+                alt="A labyrinth with letters scattered throughout"
                 width={900}
                 height={600}
                 style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
@@ -315,30 +314,7 @@ export default async function Path3Page() {
         <br />
         When the morning shadow forms a mirror, what letter sees itself in the reflection?
       </p>
-      <div style={{ height: 24 }} />
-      <p>
-        The guests are gathered twice for fare, <br />
-        but only one feast asks questions. <br />
-        On that second occasion, <br />
-        letters fall into place-- <br />
-        not words, but patters waiting to be seen. <br />
-      </p>
-      <div style={{ height: 24 }} />
-      <p>
-        Among them, a mark stands apart <br />
-        not a letter, but a cry. <br />
-        It startles from its square, <br />
-        punctuation where there should be form. <br />
-      </p>
-      <div style={{ height: 24 }} />
-      <p>
-        From that point, step with care-- <br />
-        three times, <br />
-        each one rising and to the left, <br />
-        against the grain of reading and time. <br />
-      </p>
-      <div style={{ height: 24 }} />
-      <p>There, the answer awaits.</p>
+    
 
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
       {unlockedStep === 6 && !answers["6"] ? (
@@ -367,7 +343,6 @@ export default async function Path3Page() {
     textAlign: "center",
   }}
 >
-
   <div
     style={{
       display: "flex",
@@ -377,11 +352,10 @@ export default async function Path3Page() {
       flexWrap: "wrap",
     }}
   >
+    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+      Furman Mathematics
+    </p>
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Mathematics
-      </p>
-    {/* Main logo */}
     <Image
       src="/logos/FHCBlack.svg"
       alt="FHC Logo"
@@ -389,9 +363,29 @@ export default async function Path3Page() {
       height={80}
     />
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Art
-      </p>
+    <Image
+      src="/logos/FUArt_logo.png"
+      alt="FU Art Logo"
+      width={80}
+      height={80}
+    />
+
+       <Image
+      src="/logos/TCC Logo.png"
+      alt="Cothran Center Logo"
+      width={80}
+      height={80}
+    />
+
+
+    {/* PP Logo */}
+    <Image
+      src="/logos/paladin-puzzlers-logo.png"  
+      alt="Paladin Puzzlers Logo"
+      width={50}
+      height={50}
+      style={{ borderRadius: "8px" }}
+    />
   </div>
 </footer>
 
