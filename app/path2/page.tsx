@@ -142,15 +142,6 @@ export default async function Path2Page() {
         Your password is a player from team 3 followed by a player of team 5. Your password needs to be entered with no spaces, all lowercase.
       </p>
 
-      <div style={{ margin: "16px 0" }}>
-        <Image
-          src="/path2/step2.png"
-          alt="A knight piece from chess"
-          width={900}
-          height={600}
-          style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
-        />
-      </div>
 
       <p>
         Your answer is the password to the next step. Enter it here{" "}
@@ -184,23 +175,11 @@ export default async function Path2Page() {
   ) : (
     <>
       {/* RIDDLE ALWAYS VISIBLE ONCE UNLOCKED */}
-      <p>You got it. Well done. Here is your next riddle...</p>
       <div style={{ height: 24 }} />
       <p>
-        Between the halls where pages sleep <br />
-        and the roof that gathers hymns,<br />
-        two voiceless springs keep watch.<br />
-        The first stands where silence lingers,<br />
-        counting thoughts that drift like dust.<br />
-        The second sits closer to a pointed spire,<br />
-        still as prayer, and just as deep.<br />
-        Let present eyes be still;<br />
-        peer instead through the looking-glass of yesterday,<br />
-        and their forms will speak in letters scrambled,<br />
-        lights on high and darks in the depths.<br />
-        Name the first, then the second—<br />
-        a pair in uppercase, no spaces—<br />
-        to unlock what you seek.<br />
+Your last password should guide you to an important monument on campus. 
+Your next password is a six-letter word found under the hair at your new location. 
+Enter your password in all lower-case letters.
       </p>
 
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
@@ -233,9 +212,9 @@ export default async function Path2Page() {
     <>
       {/* TEXT ALWAYS VISIBLE ONCE UNLOCKED */}
       <p>
-        You now need to combine your last two passwords and then visit the Duke to inquire about
-        this artifact. Your next password is the first name of another puzzle master that you may just
-        run across at the end of your search. Lower case letters only.
+Your next password is two letters. Find what is missing from the royal family box. 
+Enter your password in all lower-case letters. 
+If you make three incorrect guesses, then you are timed out for an hour.
       </p>
 
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
@@ -266,19 +245,11 @@ export default async function Path2Page() {
     <>
       {/* TEXT ALWAYS VISIBLE ONCE UNLOCKED */}
       <p>
-        Well done! You are holding in your hands a wonderful little book. If you are not holding it, go
-        get it at the circulation desk!
+We believe the two Furman F signs were stolen by a soldier who wanted to give them to a friend of the class of 1943. 
+Find that friend’s middle name. This is your password and you will see why the FFs were important to her. 
+Enter your password in all lower-case letters.
       </p>
       <div style={{ height: 24 }} />
-      <p>
-        Like our puzzle adventure, <i>The Eleventh Hour</i> is a mystery wrapped up in time. While there may
-        not be any missing clocks in the book, the ones that are there point to some important clues for
-        both mysteries. Take a few MINUTES to find the next password, which is a three digit number
-        based on the following:
-      </p>
-      <div style={{ height: 24 }} />
-      <p>(billiards + kitchen) * (cricket + chess)</p>
-
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
       {unlockedStep === 5 ? (
         <StepForm path="path2" step={5} />
@@ -307,33 +278,22 @@ export default async function Path2Page() {
     <>
       {/* TEXT ALWAYS VISIBLE ONCE UNLOCKED */}
       <p>
-        Great timing on your part! You are now at the final stage of this collection of puzzles, and the
-        secret letter you seek is in the book you are holding.
-      </p>
+For your final task for this puzzle sequence, you must first determine who won the game on the Stone soccer field: the Crimson Knights or the Forest Archers. 
+The winning team should help you draw a conclusion. 
+To figure out how many points each team has, you will need to consult the map. 
+</p>
       <div style={{ height: 24 }} />
       <p>
-        The guests are gathered twice for fare, <br />
-        but only one feast asks questions. <br />
-        On that second occasion, <br />
-        letters fall into place-- <br />
-        not words, but patters waiting to be seen. <br />
-      </p>
+The Forest Archers scored as many points as there are tigers on the maps times the number of kayaks on Furman lake. 
+The Crimson Knights scored as many points as the year Furman relocated to Greenville minus the year Furman was founded.
+</p>
       <div style={{ height: 24 }} />
-      <p>
-        Among them, a mark stands apart <br />
-        not a letter, but a cry. <br />
-        It startles from its square, <br />
-        punctuation where there should be form. <br />
+      <p> 
+Your password is a single letter, lower-case. If you make three incorrect guesses, then you are timed out for an hour. 
+
       </p>
-      <div style={{ height: 24 }} />
-      <p>
-        From that point, step with care-- <br />
-        three times, <br />
-        each one rising and to the left, <br />
-        against the grain of reading and time. <br />
-      </p>
-      <div style={{ height: 24 }} />
-      <p>There, the answer awaits.</p>
+
+      
 
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
@@ -363,7 +323,6 @@ export default async function Path2Page() {
     textAlign: "center",
   }}
 >
-
   <div
     style={{
       display: "flex",
@@ -373,11 +332,10 @@ export default async function Path2Page() {
       flexWrap: "wrap",
     }}
   >
+    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+      Furman Mathematics
+    </p>
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Mathematics
-      </p>
-    {/* Main logo */}
     <Image
       src="/logos/FHCBlack.svg"
       alt="FHC Logo"
@@ -385,9 +343,21 @@ export default async function Path2Page() {
       height={80}
     />
 
-      <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-        Furman Art
-      </p>
+    <Image
+      src="/logos/FUArt_logo.png"
+      alt="FU Art Logo"
+      width={80}
+      height={80}
+    />
+
+    {/* PP Logo */}
+    <Image
+      src="/logos/paladin-puzzlers-logo.png"  
+      alt="Paladin Puzzlers Logo"
+      width={50}
+      height={50}
+      style={{ borderRadius: "8px" }}
+    />
   </div>
 </footer>
      

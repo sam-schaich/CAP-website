@@ -330,6 +330,13 @@ export default async function Path4Page() {
       height={80}
     />
 
+       <Image
+      src="/logos/TCC Logo.png"
+      alt="Cothran Center Logo"
+      width={80}
+      height={80}
+    />
+
     {/* PP Logo */}
     <Image
       src="/logos/paladin-puzzlers-logo.png"  
