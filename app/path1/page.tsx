@@ -5,6 +5,10 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import StepForm from "./step-form";
 import Step2Client from "./step2-client";
 import FinalUnlock from "@/components/FinalUnlock";
+import { Cinzel, Uncial_Antiqua } from "next/font/google";
+
+const cinzel = Cinzel({ subsets: ["latin"] });
+const medieval = Uncial_Antiqua({ subsets: ["latin"], weight: "400" });
 
 export const dynamic = "force-dynamic";
 
@@ -59,7 +63,42 @@ export default async function Path1Page() {
     marginBottom: 12,
   }}
 >
-  <h1 style={{ margin: 0 }}>Path 1</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 20,
+          flexWrap: "wrap",
+          gap: "1rem",
+        }}
+      >
+        <h1
+          className={medieval.className}
+          style={{
+            margin: 0,
+            fontSize: "2.5rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
+<Image
+  src="/logos/paladin-puzzlers-logo.png"
+  alt="Paladin Puzzlers Logo"
+  width={45}
+  height={45}
+  style={{
+    borderRadius: "8px",
+    width: "1em",
+    height: "1em",
+  }}
+/>
+          Path 1
+        </h1>
+
+
+      </div>
 
 <nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
   <Link href="/">Home</Link>
@@ -67,6 +106,7 @@ export default async function Path1Page() {
   <Link href="/path2">Path 2</Link>
   <Link href="/path3">Path 3</Link>
   <Link href="/path4">Path 4</Link>
+  <Link href="/about">About the Puzzlers</Link>
   {completedAllPaths && (
     <Link
       href="/final"
@@ -85,9 +125,56 @@ export default async function Path1Page() {
 </div>
 
 
-      <p style={{ marginTop: 8 }}>
-        Current unlocked step: <strong>{unlockedStep}</strong> / 6
-      </p>
+{/* Progress + Map Links */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: "1rem",
+    marginBottom: "2rem",
+    flexWrap: "wrap",
+    gap: "1rem",
+  }}
+>
+  {/* Left */}
+  <p
+    style={{
+      margin: 0,
+      textAlign: "left",
+    }}
+  >
+    Current unlocked step: <strong>{unlockedStep}</strong> / 6
+  </p>
+
+  {/* Right */}
+  <div
+    style={{
+      display: "flex",
+      gap: "0.75rem",
+      flexWrap: "wrap",
+      justifyContent: "flex-end",
+    }}
+  >
+    {["map1", "map2", "map3"].map((map) => (
+      <a
+        key={map}
+        href={`/maps/${map}.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: "0.4rem 1rem",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
+          textDecoration: "none",
+          fontSize: "1rem",
+        }}
+      >
+        {map.replace("map", "Map ")}
+      </a>
+    ))}
+  </div>
+</div>
 
       {completedPath && (
         <p style={{ marginTop: 8 }}>
@@ -379,9 +466,12 @@ export default async function Path1Page() {
       flexWrap: "wrap",
     }}
   >
-    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-      Furman Mathematics
-    </p>
+    <Image
+      src="/logos/math-logo.png"
+      alt="Math Department Logo"
+      width={100}
+      height={1000}
+    />
 
     <Image
       src="/logos/FHCBlack.svg"

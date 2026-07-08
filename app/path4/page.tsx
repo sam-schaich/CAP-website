@@ -4,6 +4,10 @@ import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import StepForm from "./StepForm4";
 import FinalUnlock from "@/components/FinalUnlock";
+import { Cinzel, Uncial_Antiqua } from "next/font/google";
+
+const cinzel = Cinzel({ subsets: ["latin"] });
+const medieval = Uncial_Antiqua({ subsets: ["latin"], weight: "400" });
 
 console.log("StepForm type:", typeof StepForm, StepForm);
 console.log("FinalUnlock type:", typeof FinalUnlock, FinalUnlock);
@@ -60,7 +64,42 @@ export default async function Path4Page() {
     marginBottom: 12,
   }}
 >
-  <h1 style={{ margin: 0 }}>Path 4</h1>
+<div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 20,
+          flexWrap: "wrap",
+          gap: "1rem",
+        }}
+      >
+        <h1
+          className={medieval.className}
+          style={{
+            margin: 0,
+            fontSize: "2.5rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.75rem",
+          }}
+        >
+<Image
+  src="/logos/paladin-puzzlers-logo.png"
+  alt="Paladin Puzzlers Logo"
+  width={45}
+  height={45}
+  style={{
+    borderRadius: "8px",
+    width: "1em",
+    height: "1em",
+  }}
+/>
+          Path 1
+        </h1>
+
+
+      </div>
 
 <nav style={{ display: "flex", gap: 12, alignItems: "center" }}>
   <Link href="/">Home</Link>
@@ -68,6 +107,7 @@ export default async function Path4Page() {
   <Link href="/path2">Path 2</Link>
   <Link href="/path3">Path 3</Link>
   <Link href="/path4">Path 4</Link>
+  <Link href="/about">About the Puzzlers</Link>
   {completedAllPaths && (
     <Link
       href="/final"

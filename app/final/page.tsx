@@ -174,29 +174,67 @@ export default async function FinalPage() {
       </section>
 
       {/* Footer */}
-      <footer
-        style={{
-          marginTop: "3rem",
-          paddingTop: "1.5rem",
-          borderTop: "1px solid #d6c6a8",
-          width: "100%",
-          textAlign: "center",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "2rem",
-            flexWrap: "wrap",
-          }}
-        >
-          <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>Furman Mathematics</p>
-          <Image src="/logos/FHCBlack.svg" alt="FHC Logo" width={80} height={80} />
-          <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>Furman Art</p>
-        </div>
-      </footer>
-    </main>
-  );
-}
+     
+     <footer
+       style={{
+         marginTop: "3rem",
+         paddingTop: "1.5rem",
+         borderTop: "1px solid #d6c6a8",
+         width: "100%",
+         maxWidth: "900px",
+         textAlign: "center",
+       }}
+     >
+       <div
+         style={{
+           display: "flex",
+           justifyContent: "center",
+           alignItems: "center",
+           gap: "2rem",
+           flexWrap: "wrap",
+         }}
+       >
+         <Image
+           src="/logos/math-logo.png"
+           alt="Math Department Logo"
+           width={100}
+           height={80}
+         />
+     
+         <Image
+           src="/logos/FHCBlack.svg"
+           alt="FHC Logo"
+           width={80}
+           height={80}
+         />
+     
+         <Image
+           src="/logos/FUArt_logo.png"
+           alt="FU Art Logo"
+           width={80}
+           height={80}
+         />
+     
+           <Image
+             src="/logos/TCC Logo.png"
+             alt="Cothran Center Logo"
+             width={80}
+             height={80}
+         />
+         
+         {/* PP Logo */}
+         <Image
+           src="/logos/paladin-puzzlers-logo.png"  
+           alt="Paladin Puzzlers Logo"
+           width={50}
+           height={50}
+           style={{ borderRadius: "8px" }}
+         />
+       </div>
+     </footer>
+          
+     
+         </main>
+       );
+     }
+     
