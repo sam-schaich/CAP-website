@@ -63,7 +63,7 @@ export default async function Home() {
     }}
   />
 
-  <h1
+<h1
   className={medieval.className}
   style={{
     fontSize: "clamp(1.4rem, 4vw, 4.5rem)",
@@ -72,12 +72,14 @@ export default async function Home() {
     letterSpacing: "2px",
     lineHeight: "1.3",
     textTransform: "uppercase",
+
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    gap: "0.6rem",
-    flexWrap: "wrap",
-    textAlign: "center",
+    gap: "0.5rem",
+
+    flexWrap: "nowrap",
+    whiteSpace: "nowrap",
   }}
 >
 <Image
@@ -131,18 +133,17 @@ export default async function Home() {
 
 {/* STORY */}
 <section
+  className="scroll-section"
   style={{
     position: "relative",
     maxWidth: "1300px",
     margin: "0 auto",
 
-    // Use the scroll image as background
     backgroundImage: "url('/dame_scroll.png')",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center top",
 
-    // Tall enough to show the full illustration
     minHeight: "800px",
 
     display: "flex",
@@ -151,34 +152,19 @@ export default async function Home() {
   }}
 >
   {/* Text sits over the scroll area */}
-  <div
-    style={{
-      // Push text down to align with the scroll body in the image
-      marginTop: "22%",
-      marginBottom: "18%",
-      marginLeft: "2%",
+  <div className="scroll-text">
+    <p style={{ marginBottom: "0.6em" }}>
+      <strong>A Rift in Time</strong>
+    </p>
 
-      // Constrain to the scroll's width (roughly center 40% of image)
-      width: "19%",
-
-      textAlign: "center",
-      lineHeight: "1.6",
-      fontSize: "1rem",
-
-      // Scroll parchment color
-      color: "#322f2bff",
-    }}
-  >
-    <p style={{ marginBottom: "0.6em" }}><strong>A Rift in Time</strong></p>
-
-  <p>
-  When Bell Tower's clock was torn away,
-  Two worlds began to bleed and sway.
-  The Dame now hides with clues in hand;
-  Outsmart the King, restore the land.
-  Find the clock before it's gone,
-  Or modern Furman fades at dawn.
-</p>
+    <p>
+      When Bell Tower's clock was torn away,
+      Two worlds began to bleed and sway.
+      The Dame now hides with clues in hand;
+      Outsmart the King, restore the land.
+      Find the clock before it's gone,
+      Or modern Furman fades at dawn.
+    </p>
   </div>
 </section>
 
