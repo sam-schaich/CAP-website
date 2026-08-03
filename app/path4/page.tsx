@@ -95,7 +95,7 @@ export default async function Path4Page() {
     height: "1em",
   }}
 />
-          Path 1
+          Path 4
         </h1>
 
 
@@ -126,9 +126,56 @@ export default async function Path4Page() {
 </div>
 
 
-      <p style={{ marginTop: 8 }}>
-        Current unlocked step: <strong>{unlockedStep}</strong> / 6
-      </p>
+{/* Progress + Map Links */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: "1rem",
+    marginBottom: "2rem",
+    flexWrap: "wrap",
+    gap: "1rem",
+  }}
+>
+  {/* Left */}
+  <p
+    style={{
+      margin: 0,
+      textAlign: "left",
+    }}
+  >
+    Current unlocked step: <strong>{unlockedStep}</strong> / 6
+  </p>
+
+  {/* Right */}
+  <div
+    style={{
+      display: "flex",
+      gap: "0.75rem",
+      flexWrap: "wrap",
+      justifyContent: "flex-end",
+    }}
+  >
+    {["map1", "map2", "map3"].map((map) => (
+      <a
+        key={map}
+        href={`/maps/${map}.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: "0.4rem 1rem",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
+          textDecoration: "none",
+          fontSize: "1rem",
+        }}
+      >
+        {map.replace("map", "Map ")}
+      </a>
+    ))}
+  </div>
+</div>
 
       {completedPath && (
         <p style={{ marginTop: 8 }}>
@@ -147,13 +194,14 @@ export default async function Path4Page() {
           for this particular set of puzzles.
         </p>
 
-        <div style={{ margin: "16px 0" }}>
+        <div style={{ margin: "16px 0",     display: "flex",
+    justifyContent: "center", alignItems: "center" }}>
           <Image
-            src="/path4/rebus-step1.png"
+            src="/path4/rebus-step1.webp"
             alt="Rebus puzzle for Step 1"
-            width={900}
-            height={600}
-            style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
+            width={800}
+            height={500}
+            style={{ width: "100%", maxWidth: "800px", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
           />
         </div>
 
@@ -333,6 +381,7 @@ export default async function Path4Page() {
 {typeof completedAllPaths === "boolean" && (
   <FinalUnlock unlocked={completedAllPaths} />
 )}
+
 <footer
   style={{
     marginTop: "3rem",
@@ -352,9 +401,12 @@ export default async function Path4Page() {
       flexWrap: "wrap",
     }}
   >
-    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-      Furman Mathematics
-    </p>
+    <Image
+      src="/logos/math-logo.png"
+      alt="Math Department Logo"
+      width={100}
+      height={100}
+    />
 
     <Image
       src="/logos/FHCBlack.svg"
@@ -370,13 +422,13 @@ export default async function Path4Page() {
       height={80}
     />
 
-       <Image
-      src="/logos/TCC Logo.png"
-      alt="Cothran Center Logo"
-      width={80}
-      height={80}
+      <Image
+        src="/logos/TCC Logo.png"
+        alt="Cothran Center Logo"
+        width={80}
+        height={80}
     />
-
+    
     {/* PP Logo */}
     <Image
       src="/logos/paladin-puzzlers-logo.png"  
@@ -387,10 +439,8 @@ export default async function Path4Page() {
     />
   </div>
 </footer>
-
-      
+     
 
     </main>
-    
   );
 }

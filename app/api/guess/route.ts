@@ -192,17 +192,22 @@ if (isCorrect) {
 }
 
 
-    // wrong -> increment attempts + maybe lock
-    const newWrongAttempts = (prog.wrong_attempts ?? 0) + 1;
-    const MAX_WRONG = 3;
-    const LOCK_MINUTES = 5;
+ // wrong -> increment attempts + maybe lock
+const newWrongAttempts = (prog.wrong_attempts ?? 0) + 1;
+const MAX_WRONG = 3;
 
-    let locked_until: string | null = null;
-    if (newWrongAttempts >= MAX_WRONG) {
-      const d = new Date();
-      d.setMinutes(d.getMinutes() + LOCK_MINUTES);
-      locked_until = d.toISOString();
-    }
+// Longer timeout for final steps + path2 step4
+const isLongTimeout =
+  step === 6 || (path === "path2" && step === 4);
+
+const LOCK_MINUTES = isLongTimeout ? 15 : 5;
+
+let locked_until: string | null = null;
+if (newWrongAttempts >= MAX_WRONG) {
+  const d = new Date();
+  d.setMinutes(d.getMinutes() + LOCK_MINUTES);
+  locked_until = d.toISOString();
+}
 
     const { error: wrongUpdErr } = await supabase
       .from("progress")

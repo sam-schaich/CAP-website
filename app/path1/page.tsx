@@ -193,13 +193,14 @@ export default async function Path1Page() {
           for this particular set of puzzles.
         </p>
 
-        <div style={{ margin: "16px 0" }}>
+        <div style={{ margin: "16px 0",     display: "flex",
+    justifyContent: "center", alignItems: "center" }}>
           <Image
-            src="/path1/rebus-step1.png"
+            src="/path1/rebus-step1.webp"
             alt="Rebus puzzle for Step 1"
-            width={900}
-            height={600}
-            style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
+            width={450}
+            height={300}
+            style={{ width: "100%", maxWidth: "450px", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
           />
         </div>
 

@@ -139,7 +139,7 @@ export default async function Home() {
     maxWidth: "1300px",
     margin: "0 auto",
 
-    backgroundImage: "url('/dame_scroll.png')",
+    backgroundImage: "url('/dame_scroll.webp')",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center top",
@@ -274,7 +274,7 @@ export default async function Home() {
             }}
           >
             <Image
-              src={`/maps/thumbs/map${num}.jpg`}
+              src={`/maps/thumbs/map${num}.webp`}
               alt={`Map ${num}`}
               width={800}
               height={600}

@@ -122,9 +122,56 @@ export default async function Path2Page() {
 </div>
 
 
-      <p style={{ marginTop: 8 }}>
-        Current unlocked step: <strong>{unlockedStep}</strong> / 6
-      </p>
+{/* Progress + Map Links */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: "1rem",
+    marginBottom: "2rem",
+    flexWrap: "wrap",
+    gap: "1rem",
+  }}
+>
+  {/* Left */}
+  <p
+    style={{
+      margin: 0,
+      textAlign: "left",
+    }}
+  >
+    Current unlocked step: <strong>{unlockedStep}</strong> / 6
+  </p>
+
+  {/* Right */}
+  <div
+    style={{
+      display: "flex",
+      gap: "0.75rem",
+      flexWrap: "wrap",
+      justifyContent: "flex-end",
+    }}
+  >
+    {["map1", "map2", "map3"].map((map) => (
+      <a
+        key={map}
+        href={`/maps/${map}.pdf`}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          padding: "0.4rem 1rem",
+          border: "1px solid #ccc",
+          borderRadius: "8px",
+          textDecoration: "none",
+          fontSize: "1rem",
+        }}
+      >
+        {map.replace("map", "Map ")}
+      </a>
+    ))}
+  </div>
+</div>
 
       {completedPath && (
         <p style={{ marginTop: 8 }}>
@@ -143,13 +190,14 @@ export default async function Path2Page() {
           for this particular set of puzzles.
         </p>
 
-        <div style={{ margin: "16px 0" }}>
+        <div style={{ margin: "16px 0",     display: "flex",
+    justifyContent: "center", alignItems: "center" }}>
           <Image
-            src="/path2/rebus-step1.png"
+            src="/path2/rebus-step1.webp"
             alt="Rebus puzzle for Step 1"
-            width={900}
-            height={600}
-            style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
+            width={450}
+            height={300}
+            style={{ width: "100%", maxWidth: "450px", height: "auto", borderRadius: 12, border: "1px solid #ddd" }}
           />
         </div>
 
@@ -253,7 +301,7 @@ Enter your password in all lower-case letters.
       <p>
 Your next password is two letters. Find what is missing from the royal family box. 
 Enter your password in all lower-case letters. 
-If you make three incorrect guesses, then you are timed out for an hour.
+If you make three incorrect guesses, then you are timed out for 15 minutes.
       </p>
 
       {/* FORM ONLY IF CURRENT STEP; OTHERWISE SHOW COMPLETED */}
@@ -352,6 +400,7 @@ Your password is a single letter, lower-case. If you make three incorrect guesse
 {typeof completedAllPaths === "boolean" && (
   <FinalUnlock unlocked={completedAllPaths} />
 )}
+
 <footer
   style={{
     marginTop: "3rem",
@@ -371,9 +420,12 @@ Your password is a single letter, lower-case. If you make three incorrect guesse
       flexWrap: "wrap",
     }}
   >
-    <p style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
-      Furman Mathematics
-    </p>
+    <Image
+      src="/logos/math-logo.png"
+      alt="Math Department Logo"
+      width={100}
+      height={100}
+    />
 
     <Image
       src="/logos/FHCBlack.svg"
@@ -389,13 +441,13 @@ Your password is a single letter, lower-case. If you make three incorrect guesse
       height={80}
     />
 
-       <Image
-      src="/logos/TCC Logo.png"
-      alt="Cothran Center Logo"
-      width={80}
-      height={80}
+      <Image
+        src="/logos/TCC Logo.png"
+        alt="Cothran Center Logo"
+        width={80}
+        height={80}
     />
-
+    
     {/* PP Logo */}
     <Image
       src="/logos/paladin-puzzlers-logo.png"  
