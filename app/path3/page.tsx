@@ -183,6 +183,46 @@ export default async function Path3Page() {
 
       <hr style={{ margin: "16px 0" }} />
 
+{/* PUZZLE EXAMPLE */}
+<section style={{ marginBottom: 32 }}>
+  <h2>Puzzle Example</h2>
+
+  <div
+    style={{
+      margin: "16px 0",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <Image
+      src="/RebusExample.jpeg"
+      alt="Example rebus puzzle solving to 'ice cream'"
+      width={450}
+      height={300}
+      style={{
+        width: "100%",
+        maxWidth: "450px",
+        height: "auto",
+        borderRadius: 12,
+        border: "1px solid #ddd",
+      }}
+    />
+  </div>
+
+  <p>
+    Each puzzle path will start with a rebus puzzle, which, when solved,
+    will help provide some guidance on which portion of campus you will
+    be adventuring around for that particular path. A rebus puzzle is a
+    word puzzle that uses pictures, letters, symbols, or their spatial
+    arrangement (size, position, repetition) to represent a word,
+    syllable, or phrase. Solvers need to interpret the visual clues,
+    often phonetically, to figure out the hidden message. For example,
+    the image above is a rebus puzzle whose solution is{" "}
+    <strong>&quot;ice cream.&quot;</strong>
+  </p>
+</section>
+
       {/* STEP 1 */}
       <section style={{ marginBottom: 32 }}>
         <h2>Step 1</h2>

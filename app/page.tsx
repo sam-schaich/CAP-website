@@ -130,7 +130,6 @@ export default async function Home() {
   )}
 </header>
 
-
 {/* STORY */}
 <section
   className="scroll-section"
@@ -138,34 +137,14 @@ export default async function Home() {
     position: "relative",
     maxWidth: "1300px",
     margin: "0 auto",
-
-    backgroundImage: "url('/dame_scroll.webp')",
-    backgroundSize: "contain",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center top",
-
     minHeight: "800px",
-
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
   }}
 >
-  {/* Text sits over the scroll area */}
-  <div className="scroll-text">
-    <p style={{ marginBottom: "0.6em" }}>
-      <strong>A Rift in Time</strong>
-    </p>
-
-    <p>
-      When Bell Tower's clock was torn away,
-      Two worlds began to bleed and sway.
-      The Dame now hides with clues in hand;
-      Outsmart the King, restore the land.
-      Find the clock before it's gone,
-      Or modern Furman fades at dawn.
-    </p>
-  </div>
+  <img
+    src="/dame_scroll.webp"
+    alt="Dame scroll"
+    className="scroll-image"
+  />
 </section>
 
 
