@@ -218,7 +218,7 @@ export default async function Path3Page() {
     arrangement (size, position, repetition) to represent a word,
     syllable, or phrase. Solvers need to interpret the visual clues,
     often phonetically, to figure out the hidden message. For example,
-    the image above is a rebus puzzle whose solution is{" "}
+    the image above is a rebus puzzle for which the solution is{" "}
     <strong>&quot;ice cream.&quot;</strong>
   </p>
 </section>
